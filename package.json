@@ -6,7 +6,7 @@
   "main": "index.ts",
   "scripts": {
     "cy:open": "cypress open",
-    "cy:run": "cypress run --config-file cypress.json",
+    "cy:run": "cypress run",
     "prettier": "prettier --write . --ignore-path ./.gitignore",
     "lint:eslint": "eslint . --fix --format html --output-file ./dist/reports/lint/eslint-report.html --ignore-path ./.gitignore",
     "lint:eslint:json": "eslint . --fix --format json --output-file ./dist/reports/lint/eslint-report.json --ignore-path ./.gitignore",
