@@ -1,8 +1,8 @@
 import { defineConfig } from 'cypress'
 
 export default defineConfig({
-  supportFile : false,
   e2e: {
+    supportFile : false,
     baseUrl: 'https://github.com/MGuillaumeF'
   }
 })
