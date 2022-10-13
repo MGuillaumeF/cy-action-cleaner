@@ -10,7 +10,7 @@
     "prettier": "prettier --write . --ignore-path ./.gitignore",
     "lint:eslint": "eslint . --fix --format html --output-file ./dist/reports/lint/eslint-report.html --ignore-path ./.gitignore",
     "lint:eslint:json": "eslint . --fix --format json --output-file ./dist/reports/lint/eslint-report.json --ignore-path ./.gitignore",
-    "test": "npm-run-all -p start cy:run",
+    "test": "npm-run-all -p start cy:run"
   },
   "devDependencies": {
     "@mguillaumef/audiso": "^0.0.4",
