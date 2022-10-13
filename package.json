@@ -8,8 +8,8 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "prettier": "prettier --write . --ignore-path ./.gitignore",
-    "lint:eslint": "eslint . --fix --format html --output-file ./dist/reports/lint/eslint-report.html --ignore-path ./.gitignore",
-    "lint:eslint:json": "eslint . --fix --format json --output-file ./dist/reports/lint/eslint-report.json --ignore-path ./.gitignore",
+    "lint:eslint": "eslint . --fix --format html --output-file ./eslint-report.html --ignore-path ./.gitignore",
+    "lint:eslint:json": "eslint . --fix --format json --output-file ./eslint-report.json --ignore-path ./.gitignore",
     "test": "npm-run-all -p start cy:run"
   },
   "devDependencies": {
