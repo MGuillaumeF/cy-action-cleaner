@@ -1,4 +1,4 @@
-name: HANGMAN-GAME - DEFAULT
+name: CY-ACTION-CLEANER - DEFAULT
 
 on:
   schedule:
@@ -8,12 +8,6 @@ on:
   pull_request:
     branches: 
       - main
-
-env:
-
-  APPLICATION_VERSION: 0.1.0
-  APPLICATION_NAME: cy-action-clean
-
 permissions: write-all
 
 jobs:
@@ -43,7 +37,6 @@ jobs:
 
     - name: Save  changes
       if: ${{ github.event_name == 'pull_request' && github.actor != 'dependabot[bot]' }}
-      working-directory: ${{github.workspace}}
       run: |
         git stash
         git checkout ${{github.head_ref}}
@@ -76,7 +69,6 @@ jobs:
         cp -R ./cypress/reports ./dist/cypress-reports
 
     - name: Audit dependencies
-      working-directory: ${{github.workspace}}/client
       run: npm audit --json > ./dist/reports/audit-dependency-report.json || echo FAILED
 
     - name: Convert Audit dependencies client report
@@ -93,7 +85,6 @@ jobs:
       uses: warchant/setup-sonar-scanner@v4
 
     - name: Run SonarQube full
-      working-directory: ${{github.workspace}}
       if: github.actor != 'dependabot[bot]'
       env:
         GITHUB_TOKEN: ${{ secrets.SONAR_REPO_ACCESS_TOKEN }}
