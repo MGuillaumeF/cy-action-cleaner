@@ -61,24 +61,11 @@ jobs:
     - name: ESlint analyze html
       run: npm run lint:eslint || echo FAILED
 
-    - name: Copy reports
-      if: always()
-      run: |
-        tree cypress
-        mkdir -p ./dist/cypress-reports
-        cp -R ./cypress/reports ./dist/cypress-reports
-
     - name: Audit dependencies
-      run: npm audit --json > ./dist/reports/audit-dependency-report.json || echo FAILED
+      run: npm audit --json > ./audit-dependency-report.json || echo FAILED
 
     - name: Convert Audit dependencies client report
-      run: ./node_modules/.bin/audiso --input-file=./dist/reports/audit-dependency-report.json --output-file ./dist/reports/audit-report.json
-
-    - name: Archive Analyses reports
-      uses: actions/upload-artifact@v3
-      with:
-        name: IHM-Hangman-Game-Analyses-report
-        path: ${{github.workspace}}/dist
+      run: ./node_modules/.bin/audiso --input-file=./audit-dependency-report.json --output-file ./audit-report.json
 
     - name: Setup sonarqube
       if: github.actor != 'dependabot[bot]'
