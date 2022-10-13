@@ -74,18 +74,18 @@ jobs:
     - name: Run SonarQube full
       if: github.actor != 'dependabot[bot]'
       env:
-        GITHUB_TOKEN: ${{ secrets.SONAR_REPO_ACCESS_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: sonar-scanner
         -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-        -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
+        -Dsonar.host.url=https://sonarcloud.io
         -Dsonar.verbose=false
         -Dsonar.branch.name=branch-full
 
     - name: Run SonarQube
       if: github.actor != 'dependabot[bot]'
       env:
-        GITHUB_TOKEN: ${{ secrets.SONAR_REPO_ACCESS_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: sonar-scanner
         -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-        -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }}
+        -Dsonar.host.url=https://sonarcloud.io
         -Dsonar.verbose=false
