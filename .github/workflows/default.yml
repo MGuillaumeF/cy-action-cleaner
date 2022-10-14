@@ -54,6 +54,8 @@ jobs:
 
     - name: tests
       run: npm run cy:run
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
     - name: ESlint analyze json
       run: npm run lint:eslint:json || echo FAILED
