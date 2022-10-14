@@ -5,7 +5,7 @@ describe("Page Access", () => {
     cy.visit("/hangman-game/actions", {headers : {
 
 "Accept": "application/vnd.github.v3+json",
-"Authorization": ˋBearer ${process.env.GITHUB_TOKEN}`
+"Authorization": ˋBearer ${Cypress.env("GITHUB_TOKEN")}`
 
     }});
     cy.get("body");
